@@ -5,15 +5,14 @@
                 <x-mary-button icon="heroicon.o.bars.3.center.left" class="btn-circle" />
             </x-slot:trigger>
 
-            <x-mary-menu-item title="Archive" />
-            <x-mary-menu-item title="Move" />
+            <x-mary-menu-item title="Users" link="{{ route('users.show') }}" route=" users.show" wire:navigate.hover />
         </x-mary-dropdown>
     </div>
     <div class="navbar-center">
-        <a class="btn btn-ghost text-xl" href="{{ route('home') }}">{{ config('app.name') }}</a>
+        <a class="btn btn-ghost text-xl" wire:navigate.hover href="{{ route('home') }}">{{ config('app.name') }}</a>
     </div>
     <div class="navbar-end">
-        
+
         @auth
         <button class="btn btn-ghost btn-circle">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -33,7 +32,7 @@
             </div>
         </button>
         <x-dropdown align="right" width="48">
-            
+
             <x-slot name="trigger">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                 <button

@@ -2,20 +2,18 @@
 
 namespace App\Livewire\Pages;
 
+use App\Models\User;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
 class Home extends Component
 {
 
-    public function save()
-    {
-        $post = Home::create([
-            'user' => $this->title
-        ]);
+    public $users;
 
-        return redirect()->to('/posts')
-            ->with('status', 'Post created!');
+    public function mount()
+    {
+        $this->users = User::all();
     }
 
     #[Layout('layouts.app')]
