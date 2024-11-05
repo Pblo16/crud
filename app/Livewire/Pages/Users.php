@@ -10,48 +10,41 @@ use App\Models\User;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 use Livewire\WithPagination;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\PersonalData;
+use Illuminate\Container\Attributes\Auth;
 
 class Users extends Component
 {
-
     use WithFileUploads;
     use WithPagination;
-    /* $headers = [
-        ['key' => 'id', 'label' => '#'],
-        ['key' => 'name', 'label' => 'Nice Name'],
-    ]; */
-    public $users;
+
     public array $headers = [
         ['key' => 'id', 'label' => '#'],
         ['key' => 'name', 'label' => 'Name'],
         ['key' => 'email', 'label' => 'Email'],
     ];
+
+
     public $file;
     public $selectedTab = 'users-tab';
+    public $perPage = 5;
     public function import()
     {
         $this->validate([
             'file' => 'required|mimes:xls,xlsx,csv',
         ]);
 
-
         Excel::import(new Userimport, $this->file->path());
 
-        $this->users = User::all();
-        session()->flash('message', 'Inventory imported successfully.');
+        session()->flash('message', 'Users imported successfully.');
         $this->selectedTab = 'users-tab';
-    }
-
-    public function mount()
-    {
-        $this->users = User::all();
     }
 
 
     #[Layout('layouts.app')]
     public function render(): View
     {
-        $items = User::paginate(5);
+        $items = User::paginate($this->perPage);
         return view('livewire.pages.users', [
             'items' => $items,
         ]);

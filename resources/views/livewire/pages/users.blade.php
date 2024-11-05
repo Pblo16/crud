@@ -5,7 +5,8 @@
             label-div-class="bg-primary/5 p-2 rounded">
             <x-mary-tab name="users-tab" label="Users">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg p-6">
-                    <x-mary-table :headers="$headers" :rows="$users" striped no-hover />
+                    <x-mary-table :headers="$headers" :rows="$items" striped no-hover with-pagination per-page="perPage"
+                        :per-page-values="[3, 5, 10]" />
                 </div>
             </x-mary-tab>
             <x-mary-tab name="update-tab" label="Update">
