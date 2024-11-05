@@ -2,10 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Pages\Home;
+use App\Livewire\Pages\PersonalData;
 use App\Livewire\Pages\Users;
 
 Route::get('/', Home::class)->name('home');
 Route::get('/users', Users::class)->name('users.show');
+Route::get('/personal-data', PersonalData::class)->name('personal-data.show');
 
 
 Route::middleware([
