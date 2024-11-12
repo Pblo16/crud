@@ -14,22 +14,28 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class PersonalData extends Component
 {
+
     use WithFileUploads;
     use WithPagination;
-
-    public array $headers = [
-        ['key' => 'id', 'label' => '#'],
-        ['key' => 'name', 'label' => 'Name'],
-        ['key' => 'email', 'label' => 'Email'],
-        ['key' => 'phone', 'label' => 'Phone'],
-    ];
-    public $name;
-    public $phone;
-    public $email;
 
     public $file;
     public $selectedTab = 'update-tab';
     public $perPage = 5;
+
+    public array $headers = [
+        ['key' => 'id', 'label' => '#'],
+        ['key' => 'value', 'label' => 'Name'],
+    ];
+
+    #[Layout('layouts.app')]
+    public function render()
+    {
+        $items = ModelsPersonalData::paginate($this->perPage);
+        return view('livewire.pages.personal-data', [
+            'items' => $items,
+        ]);
+    }
+
     public function import()
     {
         $this->validate([
@@ -40,30 +46,5 @@ class PersonalData extends Component
 
         session()->flash('message', 'Users Data imported successfully.');
         $this->selectedTab = 'users-tab';
-    }
-    #[Layout('layouts.app')]
-    public function save()
-    {
-        $this->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
-        ]);
-        $personal = new ModelsPersonalData();
-        $personal->name = $this->name;
-        $personal->phone = $this->phone;
-        $personal->email = $this->email;
-        $personal->save();
-
-        $this->reset(['name', 'phone', 'email']);
-        $this->selectedTab = 'users-tab';
-        session()->flash('message', 'Data saved successfully.');
-    }
-    public function render()
-    {
-        $items = ModelsPersonalData::paginate($this->perPage);
-        return view('livewire.pages.personal-data', [
-            'items' => $items,
-        ]);
     }
 }

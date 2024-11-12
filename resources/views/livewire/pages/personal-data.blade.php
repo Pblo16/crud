@@ -21,20 +21,6 @@
                     </x-slot:actions>
                 </x-mary-form>
             </x-mary-tab>
-            <x-mary-tab name="form-tab" label="Form">
-                <x-mary-form wire:submit="save">
-                    <x-mary-input wire:model="name" label="Name" placeholder="Your name" icon="o-user" hint="Your full name" />
-                    <x-mary-input wire:model="phone" label="Phone" placeholder="Your phone" icon="o-user" hint="Your full name" />
-                    <x-mary-input wire:model="email" label="Email" placeholder="Your email" icon="o-user" hint="Your full name" />
-
-                    @error('file')
-                    <span class="error">{{ $message }}</span>
-                    @enderror
-                    <x-slot:actions>
-                        <x-mary-button label="Update" class="btn-primary" type="submit" spinner="save" />
-                    </x-slot:actions>
-                </x-mary-form>
-            </x-mary-tab>
         </x-mary-tabs>
     </div>
 </div>

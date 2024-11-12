@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class PersonalData extends Model
 {
     //
-    protected $table = 'personals';
+    protected $table = 'personals_dynamic';
 
     protected $fillable = [
-        'name',
-        'phone',
-        'email',
+        'coordinate_id',
+        'value',
     ];
 }
