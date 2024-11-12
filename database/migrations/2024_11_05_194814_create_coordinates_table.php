@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('row');
-            $table->integer('column_start');
-            $table->integer('column_end');
+            $table->integer('column');
             $table->timestamps();
         });
     }

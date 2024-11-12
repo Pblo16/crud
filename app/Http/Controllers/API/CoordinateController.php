@@ -3,42 +3,33 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Coordinate;
 use Illuminate\Http\Request;
 
-class TestController extends Controller
+class CoordinateController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-        $res = User::all();
-        return response()->json($res);
-    }
-
-
-    public function getUserById($id)
-    {
-        $res = User::find($id);
+        $res = Coordinate::all();
         return response()->json($res);
     }
 
     /**
-     * Store a newly created resource in <storage class=""></storage>
+     * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
-        $res = User::create($request->all());
+        $res = Coordinate::create($request->all());
         return response()->json($res);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(Coordinate $coordinate)
     {
         //
     }
@@ -46,7 +37,7 @@ class TestController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Coordinate $coordinate)
     {
         //
     }
@@ -54,7 +45,7 @@ class TestController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(Coordinate $coordinate)
     {
         //
     }

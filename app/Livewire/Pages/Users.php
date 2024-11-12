@@ -28,6 +28,7 @@ class Users extends Component
     public $file;
     public $selectedTab = 'users-tab';
     public $perPage = 5;
+    
     public function import()
     {
         $this->validate([
