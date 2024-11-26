@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Coordinate;
+use App\Models\PersonalData;
 use Illuminate\Http\Request;
 
-class CoordinateController extends Controller
+class PersonalDataController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $res = Coordinate::all();
+        $res = PersonalData::all();
         return response()->json($res);
     }
 
@@ -22,23 +22,29 @@ class CoordinateController extends Controller
      */
     public function store(Request $request)
     {
-        $res = Coordinate::create($request->all());
+        $res = PersonalData::create($request->all());
         return response()->json($res);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Coordinate $coordinate)
+    public function show($id)
     {
-        //
-        return response()->json($coordinate);
+
+        $personalData = PersonalData::find($id);
+
+        if (is_null($personalData)) {
+            return response()->json(['message' => 'Resource not found'], 404);
+        }
+
+        return response()->json($personalData);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Coordinate $coordinate)
+    public function update(Request $request, PersonalData $personalData)
     {
         //
     }
@@ -46,7 +52,7 @@ class CoordinateController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Coordinate $coordinate)
+    public function destroy(PersonalData $personalData)
     {
         //
     }
