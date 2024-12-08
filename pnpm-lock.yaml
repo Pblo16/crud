@@ -14,7 +14,7 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.10
         version: 0.5.15(tailwindcss@3.4.14)
-      autoprefixer:ñ
+      autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.47)
       axios:
@@ -26,12 +26,18 @@ importers:
       daisyui:
         specifier: ^4.12.13
         version: 4.12.13(postcss@8.4.47)
+      laravel-echo:
+        specifier: ^1.17.1
+        version: 1.17.1
       laravel-vite-plugin:
         specifier: ^1.0
         version: 1.0.5(vite@5.4.9)
       postcss:
         specifier: ^8.4.47
         version: 8.4.47
+      pusher-js:
+        specifier: 8.4.0-rc2
+        version: 8.4.0-rc2
       tailwindcss:
         specifier: ^3.4.14
         version: 3.4.14
@@ -562,6 +568,10 @@ packages:
     resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
     hasBin: true
 
+  laravel-echo@1.17.1:
+    resolution: {integrity: sha512-ORWc4vDfnBj/Oe5ThZ5kYyGItRjLDqAQUyhD/7UhehUOqc+s5x9HEBjtMVludNMP6VuXw6t7Uxt8bp63kaTofg==}
+    engines: {node: '>=10'}
+
   laravel-vite-plugin@1.0.5:
     resolution: {integrity: sha512-Zv+to82YLBknDCZ6g3iwOv9wZ7f6EWStb9pjSm7MGe9Mfoy5ynT2ssZbGsMr1udU6rDg9HOoYEVGw5Qf+p9zbw==}
     engines: {node: ^18.0.0 || >=20.0.0}
@@ -727,6 +737,9 @@ packages:
   proxy-from-env@1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
 
+  pusher-js@8.4.0-rc2:
+    resolution: {integrity: sha512-d87GjOEEl9QgO5BWmViSqW0LOzPvybvX6WA9zLUstNdB57jVJuR27zHkRnrav2a3+zAMlHbP2Og8wug+rG8T+g==}
+
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
@@ -837,6 +850,9 @@ packages:
 
   tslib@2.8.0:
     resolution: {integrity: sha512-jWVzBLplnCmoaTr13V9dYbiQ99wvZRd0vNWaDRg+aVYRcjDF3nDksxFDE/+fkXnKhpnUUkmx5pK/v8mCtLVqZA==}
+
+  tweetnacl@1.0.3:
+    resolution: {integrity: sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==}
 
   update-browserslist-db@1.1.1:
     resolution: {integrity: sha512-R8UzCaa9Az+38REPiJ1tXlImTJXlVfgHZsglwBD/k6nj76ctsH1E3q4doGrukiLQd3sGQYu56r5+lo5r94l29A==}
@@ -1352,6 +1368,8 @@ snapshots:
 
   jiti@1.21.6: {}
 
+  laravel-echo@1.17.1: {}
+
   laravel-vite-plugin@1.0.5(vite@5.4.9):
     dependencies:
       picocolors: 1.1.1
@@ -1475,6 +1493,10 @@ snapshots:
       source-map-js: 1.2.1
 
   proxy-from-env@1.1.0: {}
+
+  pusher-js@8.4.0-rc2:
+    dependencies:
+      tweetnacl: 1.0.3
 
   queue-microtask@1.2.3: {}
 
@@ -1622,6 +1644,8 @@ snapshots:
   ts-interface-checker@0.1.13: {}
 
   tslib@2.8.0: {}
+
+  tweetnacl@1.0.3: {}
 
   update-browserslist-db@1.1.1(browserslist@4.24.2):
     dependencies:

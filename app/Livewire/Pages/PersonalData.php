@@ -24,7 +24,7 @@ class PersonalData extends Component
 
     public array $headers = [
         ['key' => 'id', 'label' => '#'],
-        ['key' => 'value', 'label' => 'Name'],
+        ['key' => 'value', 'label' => 'Nombre'],
     ];
 
     #[Layout('layouts.app')]

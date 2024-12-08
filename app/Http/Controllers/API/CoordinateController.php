@@ -2,6 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
+/**
+ * @OA\Tag(
+ *     name="Coordinates",
+ *     description="API Endpoints for coordinates"
+ * )
+ */
+
 use App\Http\Controllers\Controller;
 use App\Models\Coordinate;
 use Illuminate\Http\Request;
@@ -9,7 +16,16 @@ use Illuminate\Http\Request;
 class CoordinateController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *     path="/api/coordinates",
+     *     tags={"Coordinates"},
+     *     summary="Get list of coordinates",
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation",
+     *         @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/Coordinate"))
+     *     )
+     * )
      */
     public function index()
     {
@@ -18,7 +34,20 @@ class CoordinateController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @OA\Post(
+     *     path="/api/coordinates",
+     *     tags={"Coordinates"},
+     *     summary="Create new coordinate",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/Coordinate")
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="Coordinate created",
+     *         @OA\JsonContent(ref="#/components/schemas/Coordinate")
+     *     )
+     * )
      */
     public function store(Request $request)
     {
@@ -27,11 +56,25 @@ class CoordinateController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @OA\Get(
+     *     path="/api/coordinates/{coordinate}",
+     *     tags={"Coordinates"},
+     *     summary="Get coordinate by ID",
+     *     @OA\Parameter(
+     *         name="coordinate",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation",
+     *         @OA\JsonContent(ref="#/components/schemas/Coordinate")
+     *     )
+     * )
      */
     public function show(Coordinate $coordinate)
     {
-        //
         return response()->json($coordinate);
     }
 

@@ -21,7 +21,7 @@ class DynamicImport implements ToCollection
                 // Verifica que el índice de la fila coincida con el de la coordenada
                 if ($rowIndex + 1 == $coordinate->row) {
                     $value = $row[$coordinate->column - 1] ?? null; // Almacena el dato directamente
-                    dump($value);
+
                     PersonalData::create([
                         'coordinate_id' => $coordinate->id,
                         'value' => $value, // Primeros tres elementos como nombre completo 

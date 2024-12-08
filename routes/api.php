@@ -10,9 +10,6 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-
 Route::apiResource('test', TestController::class);
-
 Route::apiResource('coordinates', CoordinateController::class);
-
 Route::apiResource('personals', PersonalDataController::class);

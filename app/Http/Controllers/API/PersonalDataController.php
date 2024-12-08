@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
+/**
+ * @OA\Tag(
+ *     name="Personal Data",
+ *     description="API Endpoints for personal data"
+ * )
+ */
 use App\Http\Controllers\Controller;
 use App\Models\PersonalData;
 use Illuminate\Http\Request;
@@ -9,7 +15,16 @@ use Illuminate\Http\Request;
 class PersonalDataController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @OA\Get(
+     *     path="/api/personals",
+     *     tags={"Personal Data"},
+     *     summary="Get list of personal data",
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation",
+     *         @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/PersonalData"))
+     *     )
+     * )
      */
     public function index()
     {
@@ -18,7 +33,20 @@ class PersonalDataController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @OA\Post(
+     *     path="/api/personals",
+     *     tags={"Personal Data"},
+     *     summary="Create new personal data",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/PersonalData")
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="Personal data created",
+     *         @OA\JsonContent(ref="#/components/schemas/PersonalData")
+     *     )
+     * )
      */
     public function store(Request $request)
     {
@@ -27,11 +55,29 @@ class PersonalDataController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @OA\Get(
+     *     path="/api/personals/{id}",
+     *     tags={"Personal Data"},
+     *     summary="Get personal data by ID",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         @OA\Schema(type="integer")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation",
+     *         @OA\JsonContent(ref="#/components/schemas/PersonalData")
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Resource not found"
+     *     )
+     * )
      */
     public function show($id)
     {
-
         $personalData = PersonalData::find($id);
 
         if (is_null($personalData)) {

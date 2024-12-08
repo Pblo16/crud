@@ -1,0 +1,443 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Documentation",
+        "description": "This is the API documentation for the application.",
+        "version": "2.0"
+    },
+    "paths": {
+        "/api/coordinates": {
+            "get": {
+                "tags": [
+                    "Coordinates"
+                ],
+                "summary": "Get list of coordinates",
+                "operationId": "cf11768f758e34ab33d422213f6784e0",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Coordinate"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Coordinates"
+                ],
+                "summary": "Create new coordinate",
+                "operationId": "92db8efa6ead55ab55ed839c9f88cd6f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Coordinate"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Coordinate created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Coordinate"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/coordinates/{coordinate}": {
+            "get": {
+                "tags": [
+                    "Coordinates"
+                ],
+                "summary": "Get coordinate by ID",
+                "operationId": "1a2c1caaf9bdb650ed0577e84d9d531c",
+                "parameters": [
+                    {
+                        "name": "coordinate",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Coordinate"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/personals": {
+            "get": {
+                "tags": [
+                    "Personal Data"
+                ],
+                "summary": "Get list of personal data",
+                "operationId": "1d9faa2bd120bb0c80908c302ea36b8e",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/PersonalData"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Personal Data"
+                ],
+                "summary": "Create new personal data",
+                "operationId": "e213bb3063cc1c71575e3d8ae68c9afd",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PersonalData"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Personal data created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PersonalData"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/personals/{id}": {
+            "get": {
+                "tags": [
+                    "Personal Data"
+                ],
+                "summary": "Get personal data by ID",
+                "operationId": "078090b71cec76afd424b1b508e50f56",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PersonalData"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resource not found"
+                    }
+                }
+            }
+        },
+        "/api/test": {
+            "get": {
+                "tags": [
+                    "Test"
+                ],
+                "summary": "Get list of users",
+                "operationId": "ec603d65fcc1218e36c46e1fcf448346",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/User"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Test"
+                ],
+                "summary": "Create a new user",
+                "operationId": "778fcf24eb240db36b6dd60a1fdaa1de",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "User created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/test/{id}": {
+            "get": {
+                "tags": [
+                    "Test"
+                ],
+                "summary": "Get user by ID",
+                "operationId": "3c9e0fc44ecd244e2336578289088b7e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Test"
+                ],
+                "summary": "Update user by ID",
+                "operationId": "74ad177c43e9f8854bd6e4026a94bd53",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Test"
+                ],
+                "summary": "Delete user by ID",
+                "operationId": "c2039771406c9467d1468ee4f9c103a3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "User deleted"
+                    }
+                }
+            }
+        },
+        "/api/test/{user}": {
+            "get": {
+                "tags": [
+                    "Test"
+                ],
+                "summary": "Get user by ID",
+                "operationId": "8ec8f6ed0d8851e69cabe60ff84abade",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "required": [
+                    "id",
+                    "name",
+                    "email"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "User ID",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "User name",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "User email",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "PersonalData": {
+                "required": [
+                    "id",
+                    "name",
+                    "address"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "Personal Data ID",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Name",
+                        "type": "string"
+                    },
+                    "address": {
+                        "description": "Address",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Coordinate": {
+                "required": [
+                    "id",
+                    "latitude",
+                    "longitude"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "Coordinate ID",
+                        "type": "integer"
+                    },
+                    "latitude": {
+                        "description": "Latitude",
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "longitude": {
+                        "description": "Longitude",
+                        "type": "number",
+                        "format": "float"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Coordinates",
+            "description": "API Endpoints for coordinates"
+        },
+        {
+            "name": "Personal Data",
+            "description": "API Endpoints for personal data"
+        },
+        {
+            "name": "Test",
+            "description": "API Endpoints for users testing"
+        }
+    ]
+}
